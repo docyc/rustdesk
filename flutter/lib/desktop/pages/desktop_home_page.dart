@@ -79,53 +79,53 @@ class _DesktopHomePageState extends State<DesktopHomePage>
     final isIncomingOnly = bind.isIncomingOnly();
     final isOutgoingOnly = bind.isOutgoingOnly();
     final children = <Widget>[
-      if (!isOutgoingOnly) buildPresetPasswordWarning(),
-      if (bind.isCustomClient())
-        Align(
-          alignment: Alignment.center,
-          child: loadPowered(context),
-        ),
-      Align(
-        alignment: Alignment.center,
-        child: loadLogo(),
-      ),
-      buildTip(context),
+      // if (!isOutgoingOnly) buildPresetPasswordWarning(),
+      // if (bind.isCustomClient())
+      //   Align(
+      //     alignment: Alignment.center,
+      //     child: loadPowered(context),
+      //   ),
+      // Align(
+      //   alignment: Alignment.center,
+      //   child: loadLogo(),
+      // ),
+      // buildTip(context),
       if (!isOutgoingOnly) buildIDBoard(context),
       if (!isOutgoingOnly) buildPasswordBoard(context),
-      FutureBuilder<Widget>(
-        future: Future.value(
-            Obx(() => buildHelpCards(stateGlobal.updateUrl.value))),
-        builder: (_, data) {
-          if (data.hasData) {
-            if (isIncomingOnly) {
-              if (isInHomePage()) {
-                Future.delayed(Duration(milliseconds: 300), () {
-                  _updateWindowSize();
-                });
-              }
-            }
-            return data.data!;
-          } else {
-            return const Offstage();
-          }
-        },
-      ),
+      // FutureBuilder<Widget>(
+      //   future: Future.value(
+      //       Obx(() => buildHelpCards(stateGlobal.updateUrl.value))),
+      //   builder: (_, data) {
+      //     if (data.hasData) {
+      //       if (isIncomingOnly) {
+      //         if (isInHomePage()) {
+      //           Future.delayed(Duration(milliseconds: 300), () {
+      //             _updateWindowSize();
+      //           });
+      //         }
+      //       }
+      //       return data.data!;
+      //     } else {
+      //       return const Offstage();
+      //     }
+      //   },
+      // ),
       buildPluginEntry(),
     ];
-    if (isIncomingOnly) {
-      children.addAll([
-        Divider(),
-        OnlineStatusWidget(
-          onSvcStatusChanged: () {
-            if (isInHomePage()) {
-              Future.delayed(Duration(milliseconds: 300), () {
-                _updateWindowSize();
-              });
-            }
-          },
-        ).marginOnly(bottom: 6, right: 6)
-      ]);
-    }
+    // if (isIncomingOnly) {
+    //   children.addAll([
+    //     Divider(),
+    //     OnlineStatusWidget(
+    //       onSvcStatusChanged: () {
+    //         if (isInHomePage()) {
+    //           Future.delayed(Duration(milliseconds: 300), () {
+    //             _updateWindowSize();
+    //           });
+    //         }
+    //       },
+    //     ).marginOnly(bottom: 6, right: 6)
+    //   ]);
+    // }
     final textColor = Theme.of(context).textTheme.titleLarge?.color;
     return ChangeNotifierProvider.value(
       value: gFFI.serverModel,
