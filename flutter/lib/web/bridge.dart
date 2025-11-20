@@ -1601,7 +1601,7 @@ class RustdeskImpl {
   }
 
   bool isIncomingOnly({dynamic hint}) {
-    return true;
+    return false;
   }
 
   bool isOutgoingOnly({dynamic hint}) {
@@ -1609,11 +1609,11 @@ class RustdeskImpl {
   }
 
   bool isCustomClient({dynamic hint}) {
-    return true;
+    return false;
   }
 
   bool isDisableSettings({dynamic hint}) {
-    return true;
+    return false;
   }
 
   bool isDisableAb({dynamic hint}) {
